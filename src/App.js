@@ -1,25 +1,25 @@
-import React, {useEffect, useReducer, useState} from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import AppContext from './Context/AppContext';
-import './Styles/App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
+import React, {useEffect, useReducer, useState} from 'react'
+import { v4 as uuidv4 } from 'uuid'
+import AppContext from './Context/AppContext'
+import './Styles/App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'font-awesome/css/font-awesome.min.css'
 
-import SideBar from './Components/SideBar';
-import Lists from './Components/Lists';
+import SideBar from './Components/SideBar'
+import Lists from './Components/Lists'
 
 const reducerFunction1 = (state, action) => {
-  let updatedNotes = [];
+  let updatedNotes = []
   switch(action.type)
   {
     case 'DELETE':
-      updatedNotes = state.filter(note => (note.id !== action.value));
-      return updatedNotes;
+      updatedNotes = state.filter(note => (note.id !== action.value))
+      return updatedNotes
 
     case 'ADD':
-      return [...state, action.value];
+      return [...state, action.value]
     default:
-      return state;
+      return state
   }
 }
 
@@ -32,7 +32,7 @@ const reducerFunction2 = (state, action) => {
       return [...state, action.value]
     case 'DELETE':
       updatedLists = state.filter(List => List.id != action.value)
-      return updatedLists;
+      return updatedLists
     default:
       return state
   }
@@ -67,18 +67,23 @@ function App() {
       title : 'Physics'
     }
   ]
+  const localLists = JSON.parse(localStorage.getItem('lists')) || initialState2
+  const [lists, dispatch2] = useReducer(reducerFunction2, localLists)
+  localStorage.setItem('lists', JSON.stringify(lists))
 
-  const [lists, dispatch2] = useReducer(reducerFunction2, initialState2);
-  const [notes, dispatch1] = useReducer(reducerFunction1, initialState1);
-  const [ListNotes, setListNotes] = useState(notes);
-  const [id, setId]= useState(1);
-  //console.log(notes);
+  const localNotes = JSON.parse(localStorage.getItem('notes')) || initialState1
+  const [notes, dispatch1] = useReducer(reducerFunction1, localNotes)
+  localStorage.setItem('notes', JSON.stringify(notes))
+
+  const [ListNotes, setListNotes] = useState(notes)
+  const [id, setId]= useState(1)
+  //console.log(notes)
 
   useEffect(() => {
-    console.log(id);
-    let items = notes.filter(note => (note.ListId === id));
-    setListNotes(items);
-  }, [notes, id]);
+    console.log(id)
+    let items = notes.filter(note => (note.ListId === id))
+    setListNotes(items)
+  }, [notes, id])
 
  
   return (
@@ -93,7 +98,7 @@ function App() {
         </AppContext.Provider>        
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
