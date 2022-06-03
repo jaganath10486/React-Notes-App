@@ -27,53 +27,26 @@ const reducerFunction1 = (state, action) => {
 const reducerFunction2 = (state, action) => {
   switch(action.type)
   {
-    case 1:
-      return state;
+    case 'ADD':
+      return [...state, action.value]
+      
+    default:
+      return state
   }
 }
 
 
 function App() {
-  const initialState1 = [
-    {
-      id : 1,
-      title : 'Class',
-      date : '02/06/2022',
-      text : " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially yes gd",
-      ListId : 1
-    },
-    {
-      id : 2,
-      title : 'Class',
-      date : '02/06/2022',
-      text : "  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially yes gd ",
-      ListId : 2
-    },
-    {
-      id : 3,
-      title : 'Class',
-      date : '02/06/2022',
-      text : "  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially yes gd ",
-      ListId : 3
-    }
-
-  ]
+  const initialState1 = []
 
   const initialState2 = [
     {
+      id : 1,
+      title : 'CS'
+    },
+    {
       id : 2,
-      title : 'physics',
-      icon : 'a'
-    },
-    {
-      id : 3,
-      title : 'physics',
-      icon : 'a'
-    },
-    {
-      id : 4,
-      title : 'physics',
-      icon : 'a'
+      title : 'Chemistry'
     }
   ]
 
