@@ -25,11 +25,14 @@ const reducerFunction1 = (state, action) => {
 
 
 const reducerFunction2 = (state, action) => {
+  let updatedLists = []
   switch(action.type)
   {
     case 'ADD':
       return [...state, action.value]
-      
+    case 'DELETE':
+      updatedLists = state.filter(List => List.id != action.value)
+      return updatedLists;
     default:
       return state
   }
