@@ -3,7 +3,7 @@ import AppContext from '../Context/AppContext'
 import Styles from '../Styles/SideBar.module.css';
 import SideBarItem from './SideBarItem';
 
-function SideBar(props) {
+function SideBar() {
     const {lists, dispatch2} = useContext(AppContext);
 
   return (
@@ -12,7 +12,7 @@ function SideBar(props) {
         <h2 className="text-start">Notes List</h2>
         <div className={`${Styles.sideNavbar} d-flex flex-column`}>
             {
-                lists.map(list => <SideBarItem key = {list.id} id = {list.id} title = {list.title} handleList = {props.handleList}/>)
+                lists.map(list => <SideBarItem key = {list.id} id = {list.id} title = {list.title}/>)
             }
         </div>
     </div>

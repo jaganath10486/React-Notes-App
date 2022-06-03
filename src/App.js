@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from 'react';
+import React, {useEffect, useReducer, useState} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import AppContext from './Context/AppContext';
 import './Styles/App.css';
@@ -9,9 +9,17 @@ import SideBar from './Components/SideBar';
 import Lists from './Components/Lists';
 
 const reducerFunction1 = (state, action) => {
+  let updatedNotes = [];
   switch(action.type)
   {
-    case 1:
+    case 'DELETE':
+      //console.log(state);
+      //console.log(action.value);
+      updatedNotes = state.filter(note => (note.id !== action.value));
+      //console.log(updatedNotes);
+      return updatedNotes;
+
+    default:
       return state;
   }
 }
@@ -73,27 +81,26 @@ function App() {
   const [lists, dispatch2] = useReducer(reducerFunction2, initialState2);
   const [notes, dispatch1] = useReducer(reducerFunction1, initialState1);
   const [ListNotes, setListNotes] = useState(notes);
+  const [id, setId]= useState(1);
+  //console.log(notes);
 
-  const handleList = (id = 2) => 
-  {
-    console.log('clicked')
+  useEffect(() => {
     console.log(id);
     let items = notes.filter(note => (note.ListId === id));
     setListNotes(items);
-  }
- 
+  }, [notes, id]);
 
+ 
   return (
     <div className="App">
       <header className='header'>
         <h1 className="text-center">Notes App</h1>
       </header>
       <div className='container d-flex justify-content-between'>
-        <AppContext.Provider value={{lists, notes, dispatch1, dispatch2}}>
-          <SideBar handleList = {handleList} />
+        <AppContext.Provider value={{lists, notes, dispatch1, dispatch2, setId}}>
+          <SideBar />
           <Lists items = {ListNotes}/>
-        </AppContext.Provider>
-        
+        </AppContext.Provider>        
       </div>
     </div>
   );
