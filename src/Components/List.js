@@ -6,7 +6,7 @@ function List(props)
     const {dispatch1} = useContext(AppContext);
 
     const handleDelete = () => {
-        console.log('Clicked Delete Button');
+        //console.log('Clicked Delete Button');
         dispatch1({
             type : 'DELETE',
             value : props.id
