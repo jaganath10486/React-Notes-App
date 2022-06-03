@@ -1,4 +1,4 @@
-a
+.item
 {
     text-decoration: none;
     margin-top: 5px;
@@ -18,7 +18,7 @@ span
     color: black;
 }
 
-a:hover
+.item:hover
 {
     background-color: lightgray;
     border-radius: 10px;
