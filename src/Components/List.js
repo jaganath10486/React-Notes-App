@@ -16,7 +16,7 @@ function List(props)
 
     <div className='col-sm-4'>
         <div className="card text-bg-primary mb-3">
-           <div className="card-header d-flex justify-content-between">
+           <div className="card-header d-flex justify-content-between" style={{cursor : 'pointer'}}>
                <span className='fs-6'>{props.date}</span>
                <span className='fs-1' style={{paddingRight : '40px'}}>{props.title}</span>
                <div className='icons'>
