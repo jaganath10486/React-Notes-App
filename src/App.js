@@ -40,16 +40,31 @@ const reducerFunction2 = (state, action) => {
 
 
 function App() {
-  const initialState1 = []
+  const initialState1 = [
+    {
+      id : uuidv4(),
+      title : 'Dummy',
+      date : '6/3/2022',
+      text : " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like.",
+      ListId : 1
+    },
+    {
+      id : uuidv4(),
+      title : 'Dummy',
+      date : '6/3/2022',
+      text : " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like.",
+      ListId : 2
+    }
+  ]
 
   const initialState2 = [
     {
       id : 1,
-      title : 'CS'
+      title : 'Maths'
     },
     {
       id : 2,
-      title : 'Chemistry'
+      title : 'Physics'
     }
   ]
 

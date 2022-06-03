@@ -35,7 +35,7 @@ function AddNote(props) {
                     </div>
                     <div className='card-body '>
                       <div className="mb-3">
-                        <textarea className="form-control border-top-0 " id="exampleFormControlTextarea1" rows="5" required  value={text} onChange={(event) => {setText(event.target.value)}} maxLength={350} ></textarea>
+                        <textarea className="form-control border-top-0 " id="exampleFormControlTextarea1" rows="7" required  value={text} onChange={(event) => {setText(event.target.value)}} maxLength={450} ></textarea>
                         <button type="submit" className="btn btn-primary mt-3">Save</button>
                       </div>
                     </div>
