@@ -1,0 +1,25 @@
+a
+{
+    text-decoration: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    padding-left: 80px;
+    padding-right: 80px;
+    transition: background .15s ease-in,background-color .15s ease-in;
+}
+
+span
+{
+    font-size: 30px;
+    color: black;
+}
+
+a:hover
+{
+    background-color: lightgray;
+    border-radius: 10px;
+}

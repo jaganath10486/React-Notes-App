@@ -4,6 +4,9 @@ import AppContext from './Context/AppContext';
 import './Styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+import SideBar from './Components/SideBar';
+
 const reducerFunction1 = (state, action) => {
   switch(action.type)
   {
@@ -37,6 +40,16 @@ function App() {
       id : uuidv4(),
       title : 'physics',
       icon : 'a'
+    },
+    {
+      id : uuidv4(),
+      title : 'physics',
+      icon : 'a'
+    },
+    {
+      id : uuidv4(),
+      title : 'physics',
+      icon : 'a'
     }
   ]
 
@@ -48,6 +61,11 @@ function App() {
       <header className='header'>
         <h1 className="text-center">Notes App</h1>
       </header>
+      <div className='container'>
+        <AppContext.Provider value={{lists, notes, dispatch1, dispatch2}}>
+          <SideBar/>
+        </AppContext.Provider>
+      </div>
     </div>
   );
 }
