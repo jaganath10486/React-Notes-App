@@ -14,7 +14,7 @@ function List(props)
     }
   return (
 
-    <div className='col-sm-4'>
+    <div className='col-md-4'>
         <div className="card text-bg-primary mb-3">
            <div className="card-header d-flex justify-content-between" style={{cursor : 'pointer'}}>
                <span className='fs-6'>{props.date}</span>

@@ -13,12 +13,11 @@ const reducerFunction1 = (state, action) => {
   switch(action.type)
   {
     case 'DELETE':
-      //console.log(state);
-      //console.log(action.value);
       updatedNotes = state.filter(note => (note.id !== action.value));
-      //console.log(updatedNotes);
       return updatedNotes;
 
+    case 'ADD':
+      return [...state, action.value];
     default:
       return state;
   }
@@ -40,21 +39,21 @@ function App() {
       id : 1,
       title : 'Class',
       date : '02/06/2022',
-      text : " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,",
+      text : " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially yes gd",
       ListId : 1
     },
     {
       id : 2,
       title : 'Class',
       date : '02/06/2022',
-      text : " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, ",
+      text : "  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially yes gd ",
       ListId : 2
     },
     {
       id : 3,
       title : 'Class',
       date : '02/06/2022',
-      text : " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, ",
+      text : "  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially yes gd ",
       ListId : 3
     }
 
@@ -97,7 +96,7 @@ function App() {
         <h1 className="text-center">Notes App</h1>
       </header>
       <div className='container d-flex justify-content-between'>
-        <AppContext.Provider value={{lists, notes, dispatch1, dispatch2, setId}}>
+        <AppContext.Provider value={{lists, notes, dispatch1, dispatch2, setId, id}}>
           <SideBar />
           <Lists items = {ListNotes}/>
         </AppContext.Provider>        
