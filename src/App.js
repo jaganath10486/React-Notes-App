@@ -80,7 +80,7 @@ function App() {
   //console.log(notes)
 
   useEffect(() => {
-    console.log(id)
+    //console.log(id)
     let items = notes.filter(note => (note.ListId === id))
     setListNotes(items)
   }, [notes, id])
