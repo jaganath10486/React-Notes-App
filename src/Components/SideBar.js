@@ -9,7 +9,7 @@ function SideBar() {
   return (
     <div className={Styles.contentFill}>
         <div className={`${Styles.complete}`}>
-        <h2 class="text-start">Notes List</h2>
+        <h2 className="text-start">Notes List</h2>
         <div className={`${Styles.sideNavbar} d-flex flex-column`}>
             {
                 lists.map(list => <SideBarItem key = {list.id} id = {list.id} title = {list.title} />)
